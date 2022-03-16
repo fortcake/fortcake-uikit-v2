@@ -35,8 +35,12 @@ const StyledMenuItem = styled.a<
   align-items: center;
   color: ${({ theme, $isActive }) =>
     $isActive ? theme.colors.secondary : theme.colors.textSubtle};
-  font-size: 16px;
+  font-size: 12px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    font-size: 16px;
+  }
 
   ${({ $statusColor, theme }) =>
     $statusColor &&
@@ -54,13 +58,17 @@ const StyledMenuItem = styled.a<
   ${({ $variant }) =>
     $variant === "default"
       ? `
-    padding: 0 16px;
+    padding: 0 11px;
     height: 48px;
   `
       : `
     padding: 4px 4px 0px 4px;
     height: 42px;
   `}
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 0 16px;
+  }
 
   &:hover {
     background: ${({ theme, isInGamesPage, label }) =>

@@ -80,7 +80,7 @@ const Menu: React.FC<NavProps & { isInGamesPage: boolean }> = ({
   logo,
   isInGamesPage,
 }) => {
-  const { isMobile } = useMatchBreakpoints();
+  const { isDesktop, isMobile } = useMatchBreakpoints();
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(
     typeof window === "undefined" ? 0 : window.pageYOffset
@@ -149,7 +149,7 @@ const Menu: React.FC<NavProps & { isInGamesPage: boolean }> = ({
                   items={filteredLinks}
                   activeItem={activeItem}
                   activeSubItem={activeSubItem}
-                  ml="24px"
+                  ml={isDesktop ? "24px" : "0"}
                   isInGamesPage={isInGamesPage}
                 />
               )}

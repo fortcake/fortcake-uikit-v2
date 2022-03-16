@@ -18,10 +18,13 @@ const blink = keyframes`
 
 const LogoImg = styled.img`
   width: 35vw;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    width: 30vw;
+  }
   ${({ theme }) => theme.mediaQueries.md} {
     width: 16vw;
   }
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({ theme }) => theme.mediaQueries.xl} {
     width: 12vw;
   }
 `;

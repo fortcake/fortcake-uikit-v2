@@ -4080,8 +4080,8 @@ var BodyWrapper = styled(Box)(templateObject_4$1 || (templateObject_4$1 = __make
 var Inner$1 = styled.div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  flex-grow: 1;\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n"], ["\n  flex-grow: 1;\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n"])));
 var Menu$1 = function (_a) {
     var _b = _a.linkComponent, linkComponent = _b === void 0 ? "a" : _b, userMenu = _a.userMenu, banner = _a.banner, globalMenu = _a.globalMenu, isDark = _a.isDark, toggleTheme = _a.toggleTheme, currentLang = _a.currentLang, setLang = _a.setLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, subLinks = _a.subLinks, footerLinks = _a.footerLinks, activeItem = _a.activeItem, activeSubItem = _a.activeSubItem, langs = _a.langs, buyCakeLabel = _a.buyCakeLabel, children = _a.children, logo = _a.logo, isInGamesPage = _a.isInGamesPage;
-    var isMobile = useMatchBreakpoints().isMobile;
-    var _c = useState(true), showMenu = _c[0], setShowMenu = _c[1];
+    var _c = useMatchBreakpoints(), isDesktop = _c.isDesktop, isMobile = _c.isMobile;
+    var _d = useState(true), showMenu = _d[0], setShowMenu = _d[1];
     var refPrevOffset = useRef(typeof window === "undefined" ? 0 : window.pageYOffset);
     var topBannerHeight = isMobile
         ? TOP_BANNER_HEIGHT_MOBILE
@@ -4129,7 +4129,7 @@ var Menu$1 = function (_a) {
                 React__default.createElement(StyledNav, null,
                     React__default.createElement(Flex, null,
                         logo,
-                        !isMobile && (React__default.createElement(MenuItems, { items: filteredLinks, activeItem: activeItem, activeSubItem: activeSubItem, ml: "24px", isInGamesPage: isInGamesPage }))),
+                        !isMobile && (React__default.createElement(MenuItems, { items: filteredLinks, activeItem: activeItem, activeSubItem: activeSubItem, ml: isDesktop ? "24px" : "0", isInGamesPage: isInGamesPage }))),
                     React__default.createElement(Flex, { alignItems: "center", height: "100%" },
                         globalMenu,
                         " ",
@@ -4277,12 +4277,15 @@ styled.div(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n
         $variant === "subMenu" &&
         "\n      &:after{\n        content: \"\";\n        position: absolute;\n        bottom: 0;\n        height: 4px;\n        width: 100%;\n        background-color: ".concat(theme.colors.primary, ";\n        border-radius: 2px 2px 0 0;\n      }\n    ");
 });
-var StyledMenuItem = styled.a(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 16px;\n  font-weight: ", ";\n\n  ", "\n\n  ", "\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n\n  &.isDisabled {\n    opacity: 0.5;\n    text-decoration: none;\n  }\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 16px;\n  font-weight: ", ";\n\n  ", "\n\n  ", "\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n\n  &.isDisabled {\n    opacity: 0.5;\n    text-decoration: none;\n  }\n"])), function (_a) {
+var StyledMenuItem = styled.a(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 12px;\n  font-weight: ", ";\n\n  ", " {\n    font-size: 16px;\n  }\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: 0 16px;\n  }\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n\n  &.isDisabled {\n    opacity: 0.5;\n    text-decoration: none;\n  }\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 12px;\n  font-weight: ", ";\n\n  ", " {\n    font-size: 16px;\n  }\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: 0 16px;\n  }\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n\n  &.isDisabled {\n    opacity: 0.5;\n    text-decoration: none;\n  }\n"])), function (_a) {
     var theme = _a.theme, $isActive = _a.$isActive;
     return $isActive ? theme.colors.secondary : theme.colors.textSubtle;
 }, function (_a) {
     var $isActive = _a.$isActive;
     return ($isActive ? "600" : "400");
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.md;
 }, function (_a) {
     var $statusColor = _a.$statusColor, theme = _a.theme;
     return $statusColor &&
@@ -4290,8 +4293,11 @@ var StyledMenuItem = styled.a(templateObject_3$2 || (templateObject_3$2 = __make
 }, function (_a) {
     var $variant = _a.$variant;
     return $variant === "default"
-        ? "\n    padding: 0 16px;\n    height: 48px;\n  "
+        ? "\n    padding: 0 11px;\n    height: 48px;\n  "
         : "\n    padding: 4px 4px 0px 4px;\n    height: 42px;\n  ";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.md;
 }, function (_a) {
     var theme = _a.theme, isInGamesPage = _a.isInGamesPage, label = _a.label;
     return isInGamesPage && label === GamesLink.label
