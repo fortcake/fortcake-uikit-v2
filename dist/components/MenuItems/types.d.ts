@@ -1,5 +1,5 @@
-import { BoxProps } from '../Box';
-import { DropdownMenuItems } from '../DropdownMenu/types';
+import { BoxProps } from "../Box";
+import { DropdownMenuItems } from "../DropdownMenu/types";
 export declare type MenuItemsType = {
     label: string;
     href: string;
@@ -7,6 +7,7 @@ export declare type MenuItemsType = {
     items?: DropdownMenuItems[];
     showOnMobile?: boolean;
     showItemsOnMobile?: boolean;
+    isExternal?: boolean;
 };
 export interface MenuItemsProps extends BoxProps {
     items: MenuItemsType[];

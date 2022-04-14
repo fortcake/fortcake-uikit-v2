@@ -3609,10 +3609,10 @@ var MenuItems = function (_a) {
     var _b = _a.items, items = _b === void 0 ? [] : _b, activeItem = _a.activeItem, isInGamesPage = _a.isInGamesPage, props = __rest(_a, ["items", "activeItem", "isInGamesPage"]);
     return (React__default["default"].createElement(Flex, __assign({}, props), items.map(function (_a) {
         var _b, _c;
-        var label = _a.label, _d = _a.items, menuItems = _d === void 0 ? [] : _d, href = _a.href;
+        var label = _a.label, _d = _a.items, menuItems = _d === void 0 ? [] : _d, href = _a.href, _e = _a.isExternal, isExternal = _e === void 0 ? false : _e;
         var statusColor = (_c = (_b = menuItems === null || menuItems === void 0 ? void 0 : menuItems.find(function (menuItem) { return menuItem.status !== undefined; })) === null || _b === void 0 ? void 0 : _b.status) === null || _c === void 0 ? void 0 : _c.color;
         var isActive = activeItem === href;
-        return (React__default["default"].createElement(MenuItem, { key: label, isInGamesPage: isInGamesPage, label: label, href: isInGamesPage && label === GamesLink.label ? "#" : href, isActive: isActive, statusColor: statusColor }, label));
+        return (React__default["default"].createElement(MenuItem, { key: label, isInGamesPage: isInGamesPage, label: label, href: isInGamesPage && label === GamesLink.label ? "#" : href, isActive: isActive, statusColor: statusColor, isExternal: isExternal }, label));
     })));
 };
 
@@ -4347,7 +4347,7 @@ var StyledMenuItem = styled__default["default"].a(templateObject_3$2 || (templat
 var templateObject_1$d, templateObject_2$5, templateObject_3$2;
 
 var MenuItem = function (_a) {
-    var children = _a.children, href = _a.href, _b = _a.isActive, isActive = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, statusColor = _a.statusColor, isInGamesPage = _a.isInGamesPage, label = _a.label, props = __rest(_a, ["children", "href", "isActive", "variant", "statusColor", "isInGamesPage", "label"]);
+    var children = _a.children, href = _a.href, _b = _a.isActive, isActive = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, statusColor = _a.statusColor, isInGamesPage = _a.isInGamesPage, label = _a.label, _d = _a.isExternal, isExternal = _d === void 0 ? false : _d, props = __rest(_a, ["children", "href", "isActive", "variant", "statusColor", "isInGamesPage", "label", "isExternal"]);
     var linkComponent = React.useContext(MenuContext).linkComponent;
     var itemLinkProps = label === GamesLink.label
         ? {
@@ -4356,6 +4356,7 @@ var MenuItem = function (_a) {
         : {
             as: linkComponent,
             href: href,
+            target: isExternal ? "_blank" : "",
         };
     return (React__default["default"].createElement(StyledMenuItem, __assign({ label: label, isInGamesPage: isInGamesPage }, itemLinkProps, { "$isActive": isActive, "$variant": variant, "$statusColor": statusColor, className: isInGamesPage && label === GamesLink.label ? "isDisabled" : "" }, props), label === GamesLink.label ? (React__default["default"].createElement(StyledLink, { to: GamesLink.link }, children)) : (children)));
 };

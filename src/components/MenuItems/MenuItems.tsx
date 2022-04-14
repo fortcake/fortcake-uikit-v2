@@ -12,7 +12,7 @@ const MenuItems: React.FC<MenuItemsProps & { isInGamesPage: boolean }> = ({
 }) => {
   return (
     <Flex {...props}>
-      {items.map(({ label, items: menuItems = [], href }) => {
+      {items.map(({ label, items: menuItems = [], href, isExternal = false }) => {
         const statusColor = menuItems?.find(
           (menuItem) => menuItem.status !== undefined
         )?.status?.color;
@@ -25,6 +25,7 @@ const MenuItems: React.FC<MenuItemsProps & { isInGamesPage: boolean }> = ({
             href={isInGamesPage && label === GamesLink.label ? "#" : href}
             isActive={isActive}
             statusColor={statusColor}
+            isExternal={isExternal}
           >
             {label}
           </MenuItem>

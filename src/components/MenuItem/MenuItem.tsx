@@ -6,7 +6,7 @@ import { MenuItemProps } from "./types";
 import { GamesLink } from "../../widgets/Menu";
 
 const MenuItem: React.FC<
-  MenuItemProps & { isInGamesPage: boolean; label: string }
+  MenuItemProps & { isInGamesPage: boolean; label: string; isExternal: boolean }
 > = ({
   children,
   href,
@@ -15,6 +15,7 @@ const MenuItem: React.FC<
   statusColor,
   isInGamesPage,
   label,
+  isExternal = false,
   ...props
 }) => {
   const { linkComponent } = useContext(MenuContext);
@@ -26,6 +27,7 @@ const MenuItem: React.FC<
       : {
           as: linkComponent,
           href,
+          target: isExternal ? "_blank" : "",
         };
   return (
     <StyledMenuItem
