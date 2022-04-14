@@ -1,5 +1,5 @@
 import throttle from "lodash/throttle";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, ReactElement } from "react";
 import styled from "styled-components";
 import BottomNav from "../../components/BottomNav";
 import { Box } from "../../components/Box";
@@ -59,7 +59,9 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
-const Menu: React.FC<NavProps & { isInGamesPage: boolean }> = ({
+const Menu: React.FC<
+  NavProps & { isInGamesPage: boolean; newsLetterComponent: ReactElement }
+> = ({
   linkComponent = "a",
   userMenu,
   banner,
@@ -79,6 +81,7 @@ const Menu: React.FC<NavProps & { isInGamesPage: boolean }> = ({
   children,
   logo,
   isInGamesPage,
+  newsLetterComponent,
 }) => {
   const { isDesktop, isMobile } = useMatchBreakpoints();
   const [showMenu, setShowMenu] = useState(true);
@@ -189,6 +192,7 @@ const Menu: React.FC<NavProps & { isInGamesPage: boolean }> = ({
               currentLang={currentLang}
               cakePriceUsd={cakePriceUsd}
               buyCakeLabel={buyCakeLabel}
+              newsLetterComponent={newsLetterComponent}
               mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
             />
           </Inner>
