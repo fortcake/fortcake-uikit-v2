@@ -2,13 +2,9 @@ import React from "react";
 import BottomNavItem from "../BottomNavItem";
 import StyledBottomNav from "./styles";
 import { BottomNavProps } from "./types";
-import { GamesLink } from "../../widgets/Menu";
+// import { GamesLink } from "../../widgets/Menu";
 
-const BottomNav: React.FC<BottomNavProps & { isInGamesPage: boolean }> = ({
-  items = [],
-  activeItem = "",
-  isInGamesPage,
-}) => {
+const BottomNav: React.FC<BottomNavProps> = ({ items = [], activeItem }) => {
   return (
     <StyledBottomNav justifyContent="space-around">
       {items.map(
@@ -18,16 +14,17 @@ const BottomNav: React.FC<BottomNavProps & { isInGamesPage: boolean }> = ({
           icon,
           showOnMobile = true,
           showItemsOnMobile = true,
+          useRouterLink = false,
         }) =>
           showOnMobile && (
             <BottomNavItem
               key={label}
-              href={isInGamesPage && label === GamesLink.label ? "#" : href}
+              href={href}
+              useRouterLink={useRouterLink}
               isActive={href === activeItem}
               label={label}
               iconName={icon}
               showItemsOnMobile={showItemsOnMobile}
-              isInGamesPage={isInGamesPage}
             />
           )
       )}

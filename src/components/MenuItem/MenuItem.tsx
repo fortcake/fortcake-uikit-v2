@@ -3,48 +3,41 @@ import React, { useContext } from "react";
 import { MenuContext } from "../../widgets/Menu/context";
 import StyledMenuItem, { StyledLink } from "./styles";
 import { MenuItemProps } from "./types";
-import { GamesLink } from "../../widgets/Menu";
 
 const MenuItem: React.FC<
-  MenuItemProps & { isInGamesPage: boolean; label: string; isExternal: boolean }
+  MenuItemProps & {
+    isExternal: boolean;
+    useRouterLink: boolean;
+  }
 > = ({
   children,
-  href,
+  href = "",
   isActive = false,
   variant = "default",
   statusColor,
-  isInGamesPage,
-  label,
   isExternal = false,
+  useRouterLink = false,
   ...props
 }) => {
   const { linkComponent } = useContext(MenuContext);
-  const itemLinkProps: unknown =
-    label === GamesLink.label
-      ? {
-          as: "div",
-        }
-      : {
-          as: linkComponent,
-          href,
-          target: isExternal ? "_blank" : "",
-        };
+  const itemLinkProps: unknown = useRouterLink
+    ? {
+        as: "div",
+      }
+    : {
+        as: linkComponent,
+        href,
+        target: isExternal ? "_blank" : "",
+      };
   return (
     <StyledMenuItem
-      label={label}
-      isInGamesPage={isInGamesPage}
       {...itemLinkProps}
       $isActive={isActive}
       $variant={variant}
       $statusColor={statusColor}
-      className={isInGamesPage && label === GamesLink.label ? "isDisabled" : ""}
       {...props}
     >
-      {label === GamesLink.label ? (
-        <StyledLink to={GamesLink.link}>{children}</StyledLink>
-      ) : (
-        children
-      )}
+      {useRouterLink ? <StyledLink to={href}>{children}</StyledLink> : children}
     </StyledMenuItem>
   );
 };

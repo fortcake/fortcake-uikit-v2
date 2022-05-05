@@ -54,9 +54,13 @@ export declare type Colors = {
     backgroundAlt: string;
     backgroundAlt2: string;
     text: string;
+    text2?: string;
     textDisabled: string;
     textSubtle: string;
+    textSubtle2?: string;
     disabled: string;
+    textDarkContrast?: string;
+    textDarkerContrast?: string;
     gradients: Gradients;
     binance: string;
     overlay: string;

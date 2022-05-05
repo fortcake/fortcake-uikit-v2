@@ -1,10 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Link } from "react-router-dom";
+import { Link, LinkProps } from "react-router-dom";
 import styled from "styled-components";
 import { StyledMenuItemProps } from "./types";
-import { GamesLink } from "../../widgets/Menu";
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<LinkProps>`
   padding: 20px 0;
 `;
 
@@ -27,16 +26,14 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
     `};
 `;
 
-const StyledMenuItem = styled.a<
-  StyledMenuItemProps & { isInGamesPage: boolean; label: string }
->`
+const StyledMenuItem = styled.a<StyledMenuItemProps>`
   position: relative;
   display: flex;
   align-items: center;
   color: ${({ theme, $isActive }) =>
     $isActive ? theme.colors.secondary : theme.colors.textSubtle};
   font-size: 12px;
-  font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
+  font-weight: 400;
 
   ${({ theme }) => theme.mediaQueries.md} {
     font-size: 16px;
@@ -71,16 +68,9 @@ const StyledMenuItem = styled.a<
   }
 
   &:hover {
-    background: ${({ theme, isInGamesPage, label }) =>
-      isInGamesPage && label === GamesLink.label
-        ? "transparent"
-        : theme.colors.tertiary};
+    background: ${({ theme, $isActive }) =>
+      $isActive ? "transparent" : theme.colors.tertiary};
     ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
-  }
-
-  &.isDisabled {
-    opacity: 0.5;
-    text-decoration: none;
   }
 `;
 

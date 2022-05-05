@@ -7,7 +7,6 @@ import { Flex } from "../Box";
 import AnimatedIconComponent from "../Svg/AnimatedIconComponent";
 import { StyledBottomNavItem, StyledBottomNavText } from "./styles";
 import { BottomNavItemProps } from "./types";
-import { GamesLink } from "../../widgets/Menu";
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -16,8 +15,15 @@ const StyledLink = styled(Link)`
 `;
 
 const BottomNavItem: React.FC<
-  BottomNavItemProps & { isInGamesPage: boolean; label: string }
-> = ({ label, iconName, href, isActive = false, isInGamesPage, ...props }) => {
+  BottomNavItemProps & { useRouterLink: boolean }
+> = ({
+  label,
+  iconName,
+  href,
+  isActive = false,
+  useRouterLink = false,
+  ...props
+}) => {
   const { linkComponent } = useContext(MenuContext);
   const bottomNavItemContent = (
     <Flex
@@ -26,8 +32,8 @@ const BottomNavItem: React.FC<
       alignItems="center"
       height="100%"
     >
-      {label === GamesLink.label ? (
-        <StyledLink to={GamesLink.link}>
+      {useRouterLink ? (
+        <StyledLink to={href}>
           <AnimatedIconComponent
             iconName={iconName ?? ""}
             height="22px"
@@ -37,7 +43,7 @@ const BottomNavItem: React.FC<
             activeBackgroundColor="backgroundAlt"
           />
           <StyledBottomNavText
-            color={isActive ? "text" : "textSubtle"}
+            color={isActive ? "secondary" : "textSubtle"}
             fontWeight={isActive ? "600" : "400"}
             fontSize="10px"
           >
@@ -66,19 +72,16 @@ const BottomNavItem: React.FC<
     </Flex>
   );
 
-  const aProps =
-    label !== GamesLink.label
-      ? {
-          href,
-          label,
-        }
-      : {};
+  const aProps = !useRouterLink
+    ? {
+        href,
+        label,
+      }
+    : {};
 
   return (
     <StyledBottomNavItem
-      as={label === GamesLink.label ? "button" : linkComponent}
-      isInGamesPage={isInGamesPage}
-      className={isInGamesPage && label === GamesLink.label ? "isDisabled" : ""}
+      as={useRouterLink ? "button" : linkComponent}
       {...aProps}
       {...props}
     >

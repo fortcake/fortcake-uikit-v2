@@ -60,9 +60,13 @@ export type Colors = {
   backgroundAlt: string;
   backgroundAlt2: string;
   text: string;
+  text2?: string;
   textDisabled: string;
   textSubtle: string;
+  textSubtle2?: string;
   disabled: string;
+  textDarkContrast?: string;
+  textDarkerContrast?: string;
 
   // Gradients
   gradients: Gradients;

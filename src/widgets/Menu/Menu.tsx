@@ -59,9 +59,7 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
-const Menu: React.FC<
-  NavProps & { isInGamesPage: boolean; newsLetterComponent: ReactElement }
-> = ({
+const Menu: React.FC<NavProps & { newsLetterComponent: ReactElement }> = ({
   linkComponent = "a",
   userMenu,
   banner,
@@ -80,7 +78,6 @@ const Menu: React.FC<
   buyCakeLabel,
   children,
   logo,
-  isInGamesPage,
   newsLetterComponent,
 }) => {
   const { isDesktop, isMobile } = useMatchBreakpoints();
@@ -153,7 +150,6 @@ const Menu: React.FC<
                   activeItem={activeItem}
                   activeSubItem={activeSubItem}
                   ml={isDesktop ? "24px" : "0"}
-                  isInGamesPage={isInGamesPage}
                 />
               )}
             </Flex>
@@ -202,7 +198,6 @@ const Menu: React.FC<
             items={filteredLinks}
             activeItem={activeItem}
             activeSubItem={activeSubItem}
-            isInGamesPage={isInGamesPage}
           />
         )}
       </Wrapper>

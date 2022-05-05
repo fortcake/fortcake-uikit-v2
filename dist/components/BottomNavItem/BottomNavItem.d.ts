@@ -1,7 +1,6 @@
 import React from "react";
 import { BottomNavItemProps } from "./types";
 declare const BottomNavItem: React.FC<BottomNavItemProps & {
-    isInGamesPage: boolean;
-    label: string;
+    useRouterLink: boolean;
 }>;
 export default BottomNavItem;

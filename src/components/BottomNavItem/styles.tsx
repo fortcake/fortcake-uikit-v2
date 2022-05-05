@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import { Text } from "../Text";
-import { GamesLink } from "../../widgets/Menu";
 
 export const StyledBottomNavItem = styled.button<{
-  isInGamesPage: boolean;
-  label: string;
+  $isActive: boolean;
 }>`
   display: block;
   border: 0;
@@ -17,10 +15,8 @@ export const StyledBottomNavItem = styled.button<{
   }
   &:hover,
   &:hover div {
-    background: ${({ theme, isInGamesPage, label }) =>
-      isInGamesPage && label === GamesLink.link
-        ? "transparent"
-        : theme.colors.tertiary};
+    background: ${({ theme, $isActive }) =>
+      $isActive ? "transparent" : theme.colors.tertiary};
   }
   &.isDisabled {
     opacity: 0.5;

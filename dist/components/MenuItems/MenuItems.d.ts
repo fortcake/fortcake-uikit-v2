@@ -1,6 +1,4 @@
 import React from "react";
 import { MenuItemsProps } from "./types";
-declare const MenuItems: React.FC<MenuItemsProps & {
-    isInGamesPage: boolean;
-}>;
+declare const MenuItems: React.FC<MenuItemsProps>;
 export default MenuItems;

@@ -9,6 +9,7 @@ export type MenuItemsType = {
   showOnMobile?: boolean;
   showItemsOnMobile?: boolean;
   isExternal?: boolean;
+  useRouterLink?: boolean;
 };
 
 export interface MenuItemsProps extends BoxProps {
