@@ -5384,6 +5384,7 @@ exports.ExpandableLabel = ExpandableLabel;
 exports.FallingBunnies = FallingBunnies;
 exports.FarmIcon = Icon$1z;
 exports.Flex = Flex;
+exports.Footer = MenuItem;
 exports.GamesLink = GamesLink;
 exports.GithubIcon = Icon$1y;
 exports.Grid = Grid;

@@ -206,3 +206,4 @@ const Menu: React.FC<NavProps & { newsLetterComponent: ReactElement }> = ({
 };
 
 export default Menu;
+export { Footer };
