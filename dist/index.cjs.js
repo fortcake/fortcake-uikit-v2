@@ -5136,6 +5136,7 @@ var connectors = [
         icon: Icon$1a,
         connectorId: exports.ConnectorNames.Injected,
         priority: 1,
+        href: "https://metamask.app.link/dapp/development.fortcake.io",
     },
     {
         title: "WalletConnect",
@@ -5150,6 +5151,19 @@ var connectors = [
         priority: 3,
     },
     {
+        title: "Coinbase",
+        icon: Icon$2,
+        connectorId: exports.ConnectorNames.WalletLink,
+        priority: 4,
+        href: "cbwallet://dapp?url=development.fortcake.io",
+    },
+    {
+        title: "Binance Chain",
+        icon: Icon$25,
+        connectorId: exports.ConnectorNames.BSC,
+        priority: 5,
+    },
+    {
         title: "MathWallet",
         icon: Icon$1g,
         connectorId: exports.ConnectorNames.Injected,
@@ -5159,12 +5173,6 @@ var connectors = [
         title: "TokenPocket",
         icon: Icon$n,
         connectorId: exports.ConnectorNames.Injected,
-        priority: 999,
-    },
-    {
-        title: "Binance Chain",
-        icon: Icon$25,
-        connectorId: exports.ConnectorNames.BSC,
         priority: 999,
     },
     {
@@ -5179,17 +5187,15 @@ var connectors = [
         connectorId: exports.ConnectorNames.Injected,
         priority: 999,
     },
-    {
-        title: "Coinbase",
-        icon: Icon$2,
-        connectorId: exports.ConnectorNames.WalletLink,
-        priority: 999,
-    },
 ];
 var connectorLocalStorageKey = "connectorIdv2";
 var walletLocalStorageKey = "wallet";
 
-var WalletButton = styled__default["default"](Button).attrs({ width: "100%", variant: "text", py: "16px" })(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"], ["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"])));
+var WalletButton = styled__default["default"](Button).attrs({
+    width: "100%",
+    variant: "text",
+    py: "16px",
+})(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"], ["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"])));
 var MoreWalletCard = function (_a) {
     var t = _a.t, props = __rest(_a, ["t"]);
     return (React__default["default"].createElement(WalletButton, __assign({ variant: "tertiary" }, props),
@@ -5200,18 +5206,24 @@ var WalletCard = function (_a) {
     var login = _a.login, walletConfig = _a.walletConfig, onDismiss = _a.onDismiss;
     var title = walletConfig.title, Icon = walletConfig.icon;
     return (React__default["default"].createElement(WalletButton, { variant: "tertiary", onClick: function () {
+            var win = window;
             var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            // const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
             // Since iOS does not support Trust Wallet we fall back to WalletConnect
-            if (walletConfig.title === "Trust Wallet" && isIOS) {
+            if (!win.ethereum && title === "Metamask" && walletConfig.href) {
+                win.open(walletConfig.href, "_blank", "noopener noreferrer");
+                login(walletConfig.connectorId);
+                // } else if (isIOS && title === "Coinbase" && walletConfig.href) {
+                //   win.open(walletConfig.href, "_blank", "noopener noreferrer");
+            }
+            else if (walletConfig.title === "Trust Wallet" && isIOS) {
                 login(exports.ConnectorNames.WalletConnect);
             }
             else {
                 login(walletConfig.connectorId);
+                localStorage === null || localStorage === void 0 ? void 0 : localStorage.setItem(walletLocalStorageKey, walletConfig.title);
+                localStorage === null || localStorage === void 0 ? void 0 : localStorage.setItem(connectorLocalStorageKey, walletConfig.connectorId);
+                onDismiss();
             }
-            localStorage.setItem(walletLocalStorageKey, walletConfig.title);
-            localStorage.setItem(connectorLocalStorageKey, walletConfig.connectorId);
-            onDismiss();
         }, id: "wallet-connect-".concat(title.toLocaleLowerCase()) },
         React__default["default"].createElement(Icon, { width: "40px", mb: "8px" }),
         React__default["default"].createElement(Text, { fontSize: "14px" }, title)));
@@ -5263,6 +5275,10 @@ var ConnectModal = function (_a) {
                     !showMore && (React__default["default"].createElement(MoreWalletCard, { t: t, onClick: function () { return setShowMore(true); } })))),
             React__default["default"].createElement(Box, { p: "24px" },
                 React__default["default"].createElement(Button, __assign({ as: "a", href: "https://fortcake.gitbook.io/fortcake/", variant: theme.isDark ? "subtle" : "primary", width: "100%" }, getExternalLinkProps()), t("Learn How to Connect"))))));
+};
+ConnectModal.defaultProps = {
+    onDismiss: function () { return 0; },
+    displayCount: 3,
 };
 var templateObject_1$2;
 

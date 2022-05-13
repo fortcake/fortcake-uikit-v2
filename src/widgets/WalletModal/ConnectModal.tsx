@@ -4,7 +4,7 @@ import getExternalLinkProps from "../../util/getExternalLinkProps";
 import Grid from "../../components/Box/Grid";
 import Box from "../../components/Box/Box";
 import getThemeValue from "../../util/getThemeValue";
-import Text from "../../components/Text/Text";
+// import Text from "../../components/Text/Text";
 import Heading from "../../components/Heading/Heading";
 import { Button } from "../../components/Button";
 import {
@@ -121,3 +121,8 @@ const ConnectModal: React.FC<Props> = ({
 };
 
 export default ConnectModal;
+
+ConnectModal.defaultProps = {
+  onDismiss: () => 0,
+  displayCount: 3,
+};

@@ -16,6 +16,7 @@ const connectors: Config[] = [
     icon: Metamask,
     connectorId: ConnectorNames.Injected,
     priority: 1,
+    href: "https://metamask.app.link/dapp/development.fortcake.io",
   },
   {
     title: "WalletConnect",
@@ -30,6 +31,19 @@ const connectors: Config[] = [
     priority: 3,
   },
   {
+    title: "Coinbase",
+    icon: CoinbaseWallet,
+    connectorId: ConnectorNames.WalletLink,
+    priority: 4,
+    href: "cbwallet://dapp?url=development.fortcake.io",
+  },
+  {
+    title: "Binance Chain",
+    icon: BinanceChain,
+    connectorId: ConnectorNames.BSC,
+    priority: 5,
+  },
+  {
     title: "MathWallet",
     icon: MathWallet,
     connectorId: ConnectorNames.Injected,
@@ -39,13 +53,6 @@ const connectors: Config[] = [
     title: "TokenPocket",
     icon: TokenPocket,
     connectorId: ConnectorNames.Injected,
-    priority: 999,
-  },
-
-  {
-    title: "Binance Chain",
-    icon: BinanceChain,
-    connectorId: ConnectorNames.BSC,
     priority: 999,
   },
   {
@@ -58,12 +65,6 @@ const connectors: Config[] = [
     title: "Coin98",
     icon: Coin98,
     connectorId: ConnectorNames.Injected,
-    priority: 999,
-  },
-  {
-    title: "Coinbase",
-    icon: CoinbaseWallet,
-    connectorId: ConnectorNames.WalletLink,
     priority: 999,
   },
 ];

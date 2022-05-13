@@ -43,19 +43,26 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss }) => {
     <WalletButton
       variant="tertiary"
       onClick={() => {
+        const win = window as any;
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-        // const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
         // Since iOS does not support Trust Wallet we fall back to WalletConnect
-        if (walletConfig.title === "Trust Wallet" && isIOS) {
+
+        if (!win.ethereum && title === "Metamask" && walletConfig.href) {
+          win.open(walletConfig.href, "_blank", "noopener noreferrer");
+        } else if (isIOS && title === "Coinbase" && walletConfig.href) {
+          win.open(walletConfig.href, "_blank", "noopener noreferrer");
+        } else if (walletConfig.title === "Trust Wallet" && isIOS) {
           login(ConnectorNames.WalletConnect);
         } else {
           login(walletConfig.connectorId);
+          localStorage?.setItem(walletLocalStorageKey, walletConfig.title);
+          localStorage?.setItem(
+            connectorLocalStorageKey,
+            walletConfig.connectorId
+          );
+          onDismiss();
         }
-
-        localStorage.setItem(walletLocalStorageKey, walletConfig.title);
-        localStorage.setItem(connectorLocalStorageKey, walletConfig.connectorId);
-        onDismiss();
       }}
       id={`wallet-connect-${title.toLocaleLowerCase()}`}
     >
