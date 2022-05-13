@@ -16,7 +16,7 @@ const connectors: Config[] = [
     icon: Metamask,
     connectorId: ConnectorNames.Injected,
     priority: 1,
-    href: "https://metamask.app.link/dapp/development.fortcake.io",
+    href: "https://metamask.app.link/dapp/fortcake.io",
   },
   {
     title: "WalletConnect",
@@ -35,7 +35,7 @@ const connectors: Config[] = [
     icon: CoinbaseWallet,
     connectorId: ConnectorNames.WalletLink,
     priority: 4,
-    href: "cbwallet://dapp?url=development.fortcake.io",
+    href: `cbwallet://dapp?url=${encodeURIComponent(window.location.href)}`,
   },
   {
     title: "Binance Chain",
