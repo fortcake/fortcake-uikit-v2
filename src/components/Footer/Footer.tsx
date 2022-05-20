@@ -1,4 +1,6 @@
 import React, { ReactElement } from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 import { baseColors, darkColors } from "../../theme/colors";
 import { Flex } from "../Box";
@@ -40,25 +42,32 @@ const MenuItem: React.FC<
             {items?.map((item) => (
               <StyledList key={item.label}>
                 <StyledListItem>{item.label}</StyledListItem>
-                {item.items?.map(({ label, href, isHighlighted = false }) => (
-                  <StyledListItem key={label}>
-                    {href ? (
-                      <Link
-                        href={href}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        color={
-                          isHighlighted ? baseColors.warning : darkColors.text
-                        }
-                        bold={false}
-                      >
-                        {label}
-                      </Link>
-                    ) : (
-                      <StyledText>{label}</StyledText>
-                    )}
-                  </StyledListItem>
-                ))}
+                {item.items?.map(
+                  ({ label, href, isHighlighted = false, useRouterLink }) => {
+                    const LinkProps: unknown = useRouterLink
+                      ? { as: RouterLink, to: href }
+                      : { href, target: "_blank", rel: "noreferrer noopener" };
+                    return (
+                      <StyledListItem key={label}>
+                        {href ? (
+                          <Link
+                            {...LinkProps}
+                            color={
+                              isHighlighted
+                                ? baseColors.warning
+                                : darkColors.text
+                            }
+                            bold={false}
+                          >
+                            {label}
+                          </Link>
+                        ) : (
+                          <StyledText>{label}</StyledText>
+                        )}
+                      </StyledListItem>
+                    );
+                  }
+                )}
               </StyledList>
             ))}
           </FlexItems>

@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Link, LinkProps } from "react-router-dom";
 import styled from "styled-components";
 import { StyledMenuItemProps } from "./types";
-
-export const StyledLink = styled(Link)<LinkProps>`
-  padding: 20px 0;
-`;
 
 export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
   position: relative;

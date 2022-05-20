@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { Link } from "react-router-dom";
 import { MenuContext } from "../../widgets/Menu/context";
-import StyledMenuItem, { StyledLink } from "./styles";
+import StyledMenuItem from "./styles";
 import { MenuItemProps } from "./types";
 
 const MenuItem: React.FC<
@@ -22,10 +23,11 @@ const MenuItem: React.FC<
   const { linkComponent } = useContext(MenuContext);
   const itemLinkProps: unknown = useRouterLink
     ? {
-        as: "div",
+        as: Link,
+        to: href,
       }
     : {
-        as: linkComponent,
+        as: useRouterLink ? Link : linkComponent,
         href,
         target: isExternal ? "_blank" : "",
       };
@@ -37,7 +39,7 @@ const MenuItem: React.FC<
       $statusColor={statusColor}
       {...props}
     >
-      {useRouterLink ? <StyledLink to={href}>{children}</StyledLink> : children}
+      {children}
     </StyledMenuItem>
   );
 };

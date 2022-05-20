@@ -6,6 +6,7 @@ export declare type FooterLinkType = {
         label: string;
         href?: string;
         isHighlighted?: boolean;
+        useRouterLink?: boolean;
     }[];
 };
 export declare type FooterProps = {

@@ -105,7 +105,7 @@ var getThemeValue = function (path, fallback) {
 
 var rotate$1 = styled.keyframes(templateObject_1$1b || (templateObject_1$1b = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
 var spinStyle = styled.css(templateObject_2$x || (templateObject_2$x = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate$1);
-var Svg = styled__default["default"].svg(templateObject_3$g || (templateObject_3$g = __makeTemplateObject(["\n  align-self: center; // Safari fix\n  fill: ", ";\n  flex-shrink: 0;\n  ", "\n  ", "\n"], ["\n  align-self: center; // Safari fix\n  fill: ", ";\n  flex-shrink: 0;\n  ", "\n  ", "\n"])), function (_a) {
+var Svg = styled__default["default"].svg(templateObject_3$f || (templateObject_3$f = __makeTemplateObject(["\n  align-self: center; // Safari fix\n  fill: ", ";\n  flex-shrink: 0;\n  ", "\n  ", "\n"], ["\n  align-self: center; // Safari fix\n  fill: ", ";\n  flex-shrink: 0;\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme, color = _a.color;
     return getThemeValue("colors.".concat(color), color)(theme);
 }, function (_a) {
@@ -118,7 +118,7 @@ Svg.defaultProps = {
     xmlns: "http://www.w3.org/2000/svg",
     spin: false,
 };
-var templateObject_1$1b, templateObject_2$x, templateObject_3$g;
+var templateObject_1$1b, templateObject_2$x, templateObject_3$f;
 
 var Icon$2m = function (props) {
     return (React__default["default"].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
@@ -1713,7 +1713,7 @@ var Details = styled__default["default"].div(templateObject_2$w || (templateObje
     var hasHandler = _a.hasHandler;
     return (hasHandler ? "".concat(withHandlerSpacing, "px") : "12px");
 });
-var CloseHandler = styled__default["default"].div(templateObject_3$f || (templateObject_3$f = __makeTemplateObject(["\n  border-radius: 0 16px 16px 0;\n  right: 8px;\n  position: absolute;\n  top: 8px;\n"], ["\n  border-radius: 0 16px 16px 0;\n  right: 8px;\n  position: absolute;\n  top: 8px;\n"])));
+var CloseHandler = styled__default["default"].div(templateObject_3$e || (templateObject_3$e = __makeTemplateObject(["\n  border-radius: 0 16px 16px 0;\n  right: 8px;\n  position: absolute;\n  top: 8px;\n"], ["\n  border-radius: 0 16px 16px 0;\n  right: 8px;\n  position: absolute;\n  top: 8px;\n"])));
 var StyledAlert = styled__default["default"](Flex)(templateObject_4$b || (templateObject_4$b = __makeTemplateObject(["\n  position: relative;\n  background-color: ", ";\n  border-radius: 16px;\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n"], ["\n  position: relative;\n  background-color: ", ";\n  border-radius: 16px;\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n"])), function (_a) {
     var theme = _a.theme;
     return theme.alert.background;
@@ -1731,7 +1731,7 @@ var Alert = function (_a) {
             React__default["default"].createElement(IconButton, { scale: "sm", variant: "text", onClick: onClick },
                 React__default["default"].createElement(Icon$1O, { width: "24px", color: "currentColor" }))))));
 };
-var templateObject_1$14, templateObject_2$w, templateObject_3$f, templateObject_4$b;
+var templateObject_1$14, templateObject_2$w, templateObject_3$e, templateObject_4$b;
 
 var Grid = styled__default["default"](Box)(templateObject_1$13 || (templateObject_1$13 = __makeTemplateObject(["\n  display: grid;\n  ", "\n  ", "\n"], ["\n  display: grid;\n  ", "\n  ", "\n"])), styledSystem.flexbox, styledSystem.grid);
 var templateObject_1$13;
@@ -1801,7 +1801,7 @@ var UnitContainer = styled__default["default"](Text)(templateObject_2$v || (temp
     var theme = _a.theme;
     return theme.colors.textSubtle;
 });
-var StyledBalanceInput = styled__default["default"](Box)(templateObject_3$e || (templateObject_3$e = __makeTemplateObject(["\n  background-color: ", ";\n  border: 1px solid ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  padding: 8px 16px;\n"], ["\n  background-color: ", ";\n  border: 1px solid ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  padding: 8px 16px;\n"])), function (_a) {
+var StyledBalanceInput = styled__default["default"](Box)(templateObject_3$d || (templateObject_3$d = __makeTemplateObject(["\n  background-color: ", ";\n  border: 1px solid ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  padding: 8px 16px;\n"], ["\n  background-color: ", ";\n  border: 1px solid ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  padding: 8px 16px;\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.input;
 }, function (_a) {
@@ -1818,7 +1818,7 @@ var StyledInput$1 = styled__default["default"](Input$1)(templateObject_4$a || (t
     var theme = _a.theme;
     return theme.colors.textSubtle;
 });
-var templateObject_1$11, templateObject_2$v, templateObject_3$e, templateObject_4$a;
+var templateObject_1$11, templateObject_2$v, templateObject_3$d, templateObject_4$a;
 
 var BalanceInput = function (_a) {
     var value = _a.value, _b = _a.placeholder, placeholder = _b === void 0 ? "0.0" : _b, onUserInput = _a.onUserInput, currencyValue = _a.currencyValue, inputProps = _a.inputProps, innerRef = _a.innerRef, _c = _a.isWarning, isWarning = _c === void 0 ? false : _c, _d = _a.decimals, decimals = _d === void 0 ? 18 : _d, unit = _a.unit, switchEditingUnits = _a.switchEditingUnits, props = __rest(_a, ["value", "placeholder", "onUserInput", "currencyValue", "inputProps", "innerRef", "isWarning", "decimals", "unit", "switchEditingUnits"]);
@@ -1993,9 +1993,9 @@ var DrawerContainer = styled__default["default"].div(templateObject_4$9 || (temp
     return theme.colors.backgroundAlt;
 }, MountAnimation, function (_a) {
     var isUnmounting = _a.isUnmounting;
-    return isUnmounting && styled.css(templateObject_3$d || (templateObject_3$d = __makeTemplateObject(["\n      animation: ", " 350ms ease forwards;\n    "], ["\n      animation: ", " 350ms ease forwards;\n    "])), UnmountAnimation);
+    return isUnmounting && styled.css(templateObject_3$c || (templateObject_3$c = __makeTemplateObject(["\n      animation: ", " 350ms ease forwards;\n    "], ["\n      animation: ", " 350ms ease forwards;\n    "])), UnmountAnimation);
 });
-var templateObject_1$Z, templateObject_2$t, templateObject_3$d, templateObject_4$9;
+var templateObject_1$Z, templateObject_2$t, templateObject_3$c, templateObject_4$9;
 
 var breakpointMap = {
     xs: 370,
@@ -2181,7 +2181,7 @@ var getBorderColor = function (_a) {
     }
     return theme.colors.cardBorder;
 };
-var StyledCard = styled__default["default"].div(templateObject_3$c || (templateObject_3$c = __makeTemplateObject(["\n  background: ", ";\n  border-radius: ", ";\n  color: ", ";\n  overflow: hidden;\n  position: relative;\n\n  ", "\n\n  padding: 1px 1px 3px 1px;\n\n  ", "\n"], ["\n  background: ", ";\n  border-radius: ", ";\n  color: ", ";\n  overflow: hidden;\n  position: relative;\n\n  ", "\n\n  padding: 1px 1px 3px 1px;\n\n  ", "\n"])), getBorderColor, function (_a) {
+var StyledCard = styled__default["default"].div(templateObject_3$b || (templateObject_3$b = __makeTemplateObject(["\n  background: ", ";\n  border-radius: ", ";\n  color: ", ";\n  overflow: hidden;\n  position: relative;\n\n  ", "\n\n  padding: 1px 1px 3px 1px;\n\n  ", "\n"], ["\n  background: ", ";\n  border-radius: ", ";\n  color: ", ";\n  overflow: hidden;\n  position: relative;\n\n  ", "\n\n  padding: 1px 1px 3px 1px;\n\n  ", "\n"])), getBorderColor, function (_a) {
     var theme = _a.theme;
     return theme.radii.card;
 }, function (_a) {
@@ -2207,7 +2207,7 @@ StyledCard.defaultProps = {
     isWarning: false,
     isDisabled: false,
 };
-var templateObject_1$X, templateObject_2$s, templateObject_3$c, templateObject_4$8;
+var templateObject_1$X, templateObject_2$s, templateObject_3$b, templateObject_4$8;
 
 var Card = function (_a) {
     var ribbon = _a.ribbon, children = _a.children, background = _a.background, props = __rest(_a, ["ribbon", "children", "background"]);
@@ -2280,7 +2280,7 @@ var variant = {
 
 var waves = styled.keyframes(templateObject_1$S || (templateObject_1$S = __makeTemplateObject(["\n   from {\n        left: -150px;\n    }\n    to   {\n        left: 100%;\n    }\n"], ["\n   from {\n        left: -150px;\n    }\n    to   {\n        left: 100%;\n    }\n"])));
 var pulse = styled.keyframes(templateObject_2$r || (templateObject_2$r = __makeTemplateObject(["\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.4;\n  }\n  100% {\n    opacity: 1;\n  }\n"], ["\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.4;\n  }\n  100% {\n    opacity: 1;\n  }\n"])));
-var Root = styled__default["default"].div(templateObject_3$b || (templateObject_3$b = __makeTemplateObject(["\n  min-height: 20px;\n  display: block;\n  background-color: ", ";\n  border-radius: ", ";\n\n  ", "\n  ", "\n"], ["\n  min-height: 20px;\n  display: block;\n  background-color: ", ";\n  border-radius: ", ";\n\n  ", "\n  ", "\n"])), function (_a) {
+var Root = styled__default["default"].div(templateObject_3$a || (templateObject_3$a = __makeTemplateObject(["\n  min-height: 20px;\n  display: block;\n  background-color: ", ";\n  border-radius: ", ";\n\n  ", "\n  ", "\n"], ["\n  min-height: 20px;\n  display: block;\n  background-color: ", ";\n  border-radius: ", ";\n\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.backgroundDisabled;
 }, function (_a) {
@@ -2296,7 +2296,7 @@ var Skeleton = function (_a) {
     }
     return React__default["default"].createElement(Pulse, __assign({ variant: variant$1 }, props));
 };
-var templateObject_1$S, templateObject_2$r, templateObject_3$b, templateObject_4$7, templateObject_5$5;
+var templateObject_1$S, templateObject_2$r, templateObject_3$a, templateObject_4$7, templateObject_5$5;
 
 var PriceLink = styled__default["default"].a(templateObject_1$R || (templateObject_1$R = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var CakePrice = function (_a) {
@@ -2682,11 +2682,11 @@ var GridLayout = styled__default["default"](GridLayout$1)(templateObject_1$D || 
 });
 var templateObject_1$D;
 
-var StyledLink$2 = styled__default["default"](Text)(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
+var StyledLink$1 = styled__default["default"](Text)(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
 var Link = function (_a) {
     var external = _a.external, props = __rest(_a, ["external"]);
     var internalProps = external ? getExternalLinkProps() : {};
-    return React__default["default"].createElement(StyledLink$2, __assign({ as: "a", bold: true }, internalProps, props));
+    return React__default["default"].createElement(StyledLink$1, __assign({ as: "a", bold: true }, internalProps, props));
 };
 Link.defaultProps = {
     color: "primary",
@@ -2846,14 +2846,14 @@ var PancakeInput = styled__default["default"].input(templateObject_2$k || (templ
     var theme = _a.theme;
     return theme.shadows.focus;
 }, getScale$2("travelDistance"), getScale$2("pancakeThickness"), getScale$2("pancakeThickness"));
-var PancakeLabel = styled__default["default"].label(templateObject_3$a || (templateObject_3$a = __makeTemplateObject(["\n  width: ", ";\n  height: ", ";\n  background: ", ";\n  box-shadow: ", ";\n  display: inline-block;\n  border-radius: 50px;\n  position: relative;\n  transition: all 0.3s ease;\n  transform-origin: 20% center;\n  cursor: pointer;\n"], ["\n  width: ", ";\n  height: ", ";\n  background: ", ";\n  box-shadow: ", ";\n  display: inline-block;\n  border-radius: 50px;\n  position: relative;\n  transition: all 0.3s ease;\n  transform-origin: 20% center;\n  cursor: pointer;\n"])), getScale$2("toggleWidth"), getScale$2("toggleHeight"), function (_a) {
+var PancakeLabel = styled__default["default"].label(templateObject_3$9 || (templateObject_3$9 = __makeTemplateObject(["\n  width: ", ";\n  height: ", ";\n  background: ", ";\n  box-shadow: ", ";\n  display: inline-block;\n  border-radius: 50px;\n  position: relative;\n  transition: all 0.3s ease;\n  transform-origin: 20% center;\n  cursor: pointer;\n"], ["\n  width: ", ";\n  height: ", ";\n  background: ", ";\n  box-shadow: ", ";\n  display: inline-block;\n  border-radius: 50px;\n  position: relative;\n  transition: all 0.3s ease;\n  transform-origin: 20% center;\n  cursor: pointer;\n"])), getScale$2("toggleWidth"), getScale$2("toggleHeight"), function (_a) {
     var theme = _a.theme, checked = _a.checked;
     return theme.colors[checked ? "success" : "input"];
 }, function (_a) {
     var theme = _a.theme;
     return theme.shadows.inset;
 });
-var templateObject_1$z, templateObject_2$k, templateObject_3$a;
+var templateObject_1$z, templateObject_2$k, templateObject_3$9;
 
 var PancakeToggle = function (_a) {
     var checked = _a.checked, _b = _a.scale, scale = _b === void 0 ? scales$4.LG : _b, props = __rest(_a, ["checked", "scale"]);
@@ -3138,7 +3138,7 @@ var SliderLabel = styled__default["default"](Text)(templateObject_2$i || (templa
     var progress = _a.progress;
     return progress;
 });
-var BunnyButt = styled__default["default"].div(templateObject_3$9 || (templateObject_3$9 = __makeTemplateObject(["\n  background: url(", ") no-repeat;\n  height: 32px;\n  filter: ", ";\n  position: absolute;\n  width: 15px;\n"], ["\n  background: url(", ") no-repeat;\n  height: 32px;\n  filter: ", ";\n  position: absolute;\n  width: 15px;\n"])), bunnyButt, function (_a) {
+var BunnyButt = styled__default["default"].div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  background: url(", ") no-repeat;\n  height: 32px;\n  filter: ", ";\n  position: absolute;\n  width: 15px;\n"], ["\n  background: url(", ") no-repeat;\n  height: 32px;\n  filter: ", ";\n  position: absolute;\n  width: 15px;\n"])), bunnyButt, function (_a) {
     var disabled = _a.disabled;
     return (disabled ? "grayscale(100%)" : "none");
 });
@@ -3155,7 +3155,7 @@ var BarProgress = styled__default["default"].div(templateObject_7$2 || (template
     var disabled = _a.disabled;
     return (disabled ? "grayscale(100%)" : "none");
 });
-var templateObject_1$v, templateObject_2$i, templateObject_3$9, templateObject_4$6, templateObject_5$4, templateObject_6$2, templateObject_7$2;
+var templateObject_1$v, templateObject_2$i, templateObject_3$8, templateObject_4$6, templateObject_5$4, templateObject_6$2, templateObject_7$2;
 
 var Slider = function (_a) {
     var name = _a.name, min = _a.min, max = _a.max, value = _a.value, onValueChanged = _a.onValueChanged, valueLabel = _a.valueLabel, _b = _a.step, step = _b === void 0 ? "any" : _b, _c = _a.disabled, disabled = _c === void 0 ? false : _c, props = __rest(_a, ["name", "min", "max", "value", "onValueChanged", "valueLabel", "step", "disabled"]);
@@ -3215,7 +3215,7 @@ var Icon = function (props) {
 
 var rotate = styled.keyframes(templateObject_1$u || (templateObject_1$u = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
 var float = styled.keyframes(templateObject_2$h || (templateObject_2$h = __makeTemplateObject(["\n\t0% {\n\t\ttransform: translatey(0px);\n\t}\n\t50% {\n\t\ttransform: translatey(10px);\n\t}\n\t100% {\n\t\ttransform: translatey(0px);\n\t}\n"], ["\n\t0% {\n\t\ttransform: translatey(0px);\n\t}\n\t50% {\n\t\ttransform: translatey(10px);\n\t}\n\t100% {\n\t\ttransform: translatey(0px);\n\t}\n"])));
-var Container = styled__default["default"].div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
+var Container = styled__default["default"].div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
 var RotatingPancakeIcon = styled__default["default"](Icon)(templateObject_4$5 || (templateObject_4$5 = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  animation: ", " 2s linear infinite;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: absolute;\n  top: 0;\n  left: 0;\n  animation: ", " 2s linear infinite;\n  transform: translate3d(0, 0, 0);\n"])), rotate);
 var FloatingPanIcon = styled__default["default"](Icon$1)(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n  animation: ", " 6s ease-in-out infinite;\n  transform: translate3d(0, 0, 0);\n"], ["\n  animation: ", " 6s ease-in-out infinite;\n  transform: translate3d(0, 0, 0);\n"])), float);
 var Spinner = function (_a) {
@@ -3224,7 +3224,7 @@ var Spinner = function (_a) {
         React__default["default"].createElement(RotatingPancakeIcon, { width: "".concat(size * 0.5, "px") }),
         React__default["default"].createElement(FloatingPanIcon, { width: "".concat(size, "px") })));
 };
-var templateObject_1$u, templateObject_2$h, templateObject_3$8, templateObject_4$5, templateObject_5$3;
+var templateObject_1$u, templateObject_2$h, templateObject_3$7, templateObject_4$5, templateObject_5$3;
 
 var StepperWrapper = styled__default["default"].div(templateObject_1$t || (templateObject_1$t = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n"], ["\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n"])));
 var Stepper = function (_a) {
@@ -3264,7 +3264,7 @@ var Connector = styled__default["default"].div(templateObject_2$g || (templateOb
     var theme = _a.theme, status = _a.status;
     return theme.colors[status === "past" || status === "current" ? "success" : "textDisabled"];
 });
-var ChildrenWrapper = styled__default["default"](Box)(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  ", " {\n    visibility: ", ";\n  }\n"], ["\n  ", " {\n    visibility: ", ";\n  }\n"])), function (_a) {
+var ChildrenWrapper = styled__default["default"](Box)(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["\n  ", " {\n    visibility: ", ";\n  }\n"], ["\n  ", " {\n    visibility: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.md;
 }, function (_a) {
@@ -3310,7 +3310,7 @@ var Step = function (_a) {
             !isFirst && !isLast && React__default["default"].createElement(Connector, { "$isFirstStep": isFirst, "$isLastStep": isLast, status: statusSecondPart })),
         React__default["default"].createElement(ChildrenRightWrapper, { isVisible: isIndexPair }, children)));
 };
-var templateObject_1$s, templateObject_2$g, templateObject_3$7, templateObject_4$4, templateObject_5$2, templateObject_6$1, templateObject_7$1;
+var templateObject_1$s, templateObject_2$g, templateObject_3$6, templateObject_4$4, templateObject_5$2, templateObject_6$1, templateObject_7$1;
 
 var InlineMenuContainer = styled__default["default"](Box)(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["\n  background-color: ", ";\n  border-radius: ", ";\n  box-shadow: ", ";\n"], ["\n  background-color: ", ";\n  border-radius: ", ";\n  box-shadow: ", ";\n"])), function (_a) {
     var theme = _a.theme;
@@ -3332,7 +3332,7 @@ var SubMenuContainer = styled__default["default"](Flex)(templateObject_2$f || (t
     var theme = _a.theme;
     return "1px solid ".concat(theme.colors.inputSecondary);
 });
-var ClickableElementContainer = styled__default["default"].div(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["\n  cursor: pointer;\n  display: inline-flex;\n"], ["\n  cursor: pointer;\n  display: inline-flex;\n"])));
+var ClickableElementContainer = styled__default["default"].div(templateObject_3$5 || (templateObject_3$5 = __makeTemplateObject(["\n  cursor: pointer;\n  display: inline-flex;\n"], ["\n  cursor: pointer;\n  display: inline-flex;\n"])));
 var SubMenuItem = styled__default["default"].button(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n  border: 0;\n  outline: 0;\n  cursor: pointer;\n  background: transparent;\n  padding: 8px 16px;\n  color: ", ";\n  width: 100%;\n  font-size: 16px;\n  text-align: left;\n\n  &:hover {\n    background-color: ", ";\n    text-decoration: none;\n  }\n"], ["\n  border: 0;\n  outline: 0;\n  cursor: pointer;\n  background: transparent;\n  padding: 8px 16px;\n  color: ", ";\n  width: 100%;\n  font-size: 16px;\n  text-align: left;\n\n  &:hover {\n    background-color: ", ";\n    text-decoration: none;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.text;
@@ -3340,7 +3340,7 @@ var SubMenuItem = styled__default["default"].button(templateObject_4$3 || (templ
     var theme = _a.theme;
     return theme.colors.inputSecondary;
 });
-var templateObject_1$r, templateObject_2$f, templateObject_3$6, templateObject_4$3;
+var templateObject_1$r, templateObject_2$f, templateObject_3$5, templateObject_4$3;
 
 var BaseMenu = function (_a) {
     var _b, _c, _d;
@@ -3412,14 +3412,13 @@ var SubMenu = function (_a) {
 
 var MenuContext = React.createContext({ linkComponent: "a" });
 
-var StyledLink$1 = styled__default["default"](reactRouterDom.Link)(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["\n  padding: 20px 0;\n"], ["\n  padding: 20px 0;\n"])));
-styled__default["default"].div(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  position: relative;\n\n  ", ";\n"], ["\n  position: relative;\n\n  ", ";\n"])), function (_a) {
+styled__default["default"].div(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["\n  position: relative;\n\n  ", ";\n"], ["\n  position: relative;\n\n  ", ";\n"])), function (_a) {
     var $isActive = _a.$isActive, $variant = _a.$variant, theme = _a.theme;
     return $isActive &&
         $variant === "subMenu" &&
         "\n      &:after{\n        content: \"\";\n        position: absolute;\n        bottom: 0;\n        height: 4px;\n        width: 100%;\n        background-color: ".concat(theme.colors.primary, ";\n        border-radius: 2px 2px 0 0;\n      }\n    ");
 });
-var StyledMenuItem = styled__default["default"].a(templateObject_3$5 || (templateObject_3$5 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 12px;\n  font-weight: 400;\n\n  ", " {\n    font-size: 16px;\n  }\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: 0 16px;\n  }\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 12px;\n  font-weight: 400;\n\n  ", " {\n    font-size: 16px;\n  }\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: 0 16px;\n  }\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n"])), function (_a) {
+var StyledMenuItem = styled__default["default"].a(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 12px;\n  font-weight: 400;\n\n  ", " {\n    font-size: 16px;\n  }\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: 0 16px;\n  }\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n"], ["\n  position: relative;\n  display: flex;\n  align-items: center;\n  color: ", ";\n  font-size: 12px;\n  font-weight: 400;\n\n  ", " {\n    font-size: 16px;\n  }\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: 0 16px;\n  }\n\n  &:hover {\n    background: ", ";\n    ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme, $isActive = _a.$isActive;
     return $isActive ? theme.colors.secondary : theme.colors.textSubtle;
 }, function (_a) {
@@ -3444,21 +3443,22 @@ var StyledMenuItem = styled__default["default"].a(templateObject_3$5 || (templat
     var $variant = _a.$variant;
     return $variant === "default" && "border-radius: 16px;";
 });
-var templateObject_1$q, templateObject_2$e, templateObject_3$5;
+var templateObject_1$q, templateObject_2$e;
 
 var MenuItem$1 = function (_a) {
     var children = _a.children, _b = _a.href, href = _b === void 0 ? "" : _b, _c = _a.isActive, isActive = _c === void 0 ? false : _c, _d = _a.variant, variant = _d === void 0 ? "default" : _d, statusColor = _a.statusColor, _e = _a.isExternal, isExternal = _e === void 0 ? false : _e, _f = _a.useRouterLink, useRouterLink = _f === void 0 ? false : _f, props = __rest(_a, ["children", "href", "isActive", "variant", "statusColor", "isExternal", "useRouterLink"]);
     var linkComponent = React.useContext(MenuContext).linkComponent;
     var itemLinkProps = useRouterLink
         ? {
-            as: "div",
+            as: reactRouterDom.Link,
+            to: href,
         }
         : {
-            as: linkComponent,
+            as: useRouterLink ? reactRouterDom.Link : linkComponent,
             href: href,
             target: isExternal ? "_blank" : "",
         };
-    return (React__default["default"].createElement(StyledMenuItem, __assign({}, itemLinkProps, { "$isActive": isActive, "$variant": variant, "$statusColor": statusColor }, props), useRouterLink ? React__default["default"].createElement(StyledLink$1, { to: href }, children) : children));
+    return (React__default["default"].createElement(StyledMenuItem, __assign({}, itemLinkProps, { "$isActive": isActive, "$variant": variant, "$statusColor": statusColor }, props), children));
 };
 
 var Icons$1 = IconModule;
@@ -4718,8 +4718,13 @@ var MenuItem = function (_a) {
                     return (React__default["default"].createElement(StyledList, { key: item.label },
                         React__default["default"].createElement(StyledListItem, null, item.label), (_a = item.items) === null || _a === void 0 ? void 0 :
                         _a.map(function (_a) {
-                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b;
-                            return (React__default["default"].createElement(StyledListItem, { key: label }, href ? (React__default["default"].createElement(Link, { href: href, target: "_blank", rel: "noreferrer noopener", color: isHighlighted ? baseColors.warning : darkColors.text, bold: false }, label)) : (React__default["default"].createElement(StyledText, null, label))));
+                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, useRouterLink = _a.useRouterLink;
+                            var LinkProps = useRouterLink
+                                ? { as: reactRouterDom.Link, to: href }
+                                : { href: href, target: "_blank", rel: "noreferrer noopener" };
+                            return (React__default["default"].createElement(StyledListItem, { key: label }, href ? (React__default["default"].createElement(Link, __assign({}, LinkProps, { color: isHighlighted
+                                    ? baseColors.warning
+                                    : darkColors.text, bold: false }), label)) : (React__default["default"].createElement(StyledText, null, label))));
                         })));
                 })),
                 newsLetterComponent),
@@ -5136,7 +5141,7 @@ var connectors = [
         icon: Icon$1a,
         connectorId: exports.ConnectorNames.Injected,
         priority: 1,
-        href: "https://metamask.app.link/dapp/development.fortcake.io",
+        href: "https://metamask.app.link/dapp/fortcake.io",
     },
     {
         title: "WalletConnect",
@@ -5155,7 +5160,7 @@ var connectors = [
         icon: Icon$2,
         connectorId: exports.ConnectorNames.WalletLink,
         priority: 4,
-        href: "cbwallet://dapp?url=development.fortcake.io",
+        href: "cbwallet://dapp?url=".concat(encodeURIComponent(window.location.href)),
     },
     {
         title: "Binance Chain",
@@ -5191,11 +5196,7 @@ var connectors = [
 var connectorLocalStorageKey = "connectorIdv2";
 var walletLocalStorageKey = "wallet";
 
-var WalletButton = styled__default["default"](Button).attrs({
-    width: "100%",
-    variant: "text",
-    py: "16px",
-})(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"], ["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"])));
+var WalletButton = styled__default["default"](Button).attrs({ width: "100%", variant: "text", py: "16px" })(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"], ["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  height: auto;\n  justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n"])));
 var MoreWalletCard = function (_a) {
     var t = _a.t, props = __rest(_a, ["t"]);
     return (React__default["default"].createElement(WalletButton, __assign({ variant: "tertiary" }, props),
@@ -5211,9 +5212,9 @@ var WalletCard = function (_a) {
             // Since iOS does not support Trust Wallet we fall back to WalletConnect
             if (!win.ethereum && title === "Metamask" && walletConfig.href) {
                 win.open(walletConfig.href, "_blank", "noopener noreferrer");
-                login(walletConfig.connectorId);
-                // } else if (isIOS && title === "Coinbase" && walletConfig.href) {
-                //   win.open(walletConfig.href, "_blank", "noopener noreferrer");
+            }
+            else if (isIOS && title === "Coinbase" && walletConfig.href) {
+                win.open(walletConfig.href, "_blank", "noopener noreferrer");
             }
             else if (walletConfig.title === "Trust Wallet" && isIOS) {
                 login(exports.ConnectorNames.WalletConnect);
