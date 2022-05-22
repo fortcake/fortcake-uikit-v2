@@ -161,8 +161,8 @@ var Text = styled__default["default"].div(templateObject_1$1a || (templateObject
 }, styledSystem.space, styledSystem.typography, styledSystem.layout);
 Text.defaultProps = {
     color: "text",
-    small: false,
-    ellipsis: false,
+    // small: false,
+    // ellipsis: false,
 };
 var templateObject_1$1a;
 
@@ -2684,12 +2684,14 @@ var templateObject_1$D;
 
 var StyledLink$1 = styled__default["default"](Text)(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
 var Link = function (_a) {
-    var external = _a.external, props = __rest(_a, ["external"]);
+    var external = _a.external, bold = _a.bold, props = __rest(_a, ["external", "bold"]);
+    var isBold = bold ? { bold: true } : {};
     var internalProps = external ? getExternalLinkProps() : {};
-    return React__default["default"].createElement(StyledLink$1, __assign({ as: "a", bold: true }, internalProps, props));
+    return React__default["default"].createElement(StyledLink$1, __assign({ as: "a" }, internalProps, isBold, props));
 };
 Link.defaultProps = {
     color: "primary",
+    bold: true,
 };
 var templateObject_1$C;
 

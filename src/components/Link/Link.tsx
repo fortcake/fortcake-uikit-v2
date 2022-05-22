@@ -13,13 +13,19 @@ const StyledLink = styled(Text)<LinkProps>`
   }
 `;
 
-const Link: React.FC<LinkProps> = ({ external, ...props }) => {
+const Link: React.FC<LinkProps & { bold?: boolean }> = ({
+  external,
+  bold,
+  ...props
+}) => {
+  const isBold = bold ? { bold: true } : {};
   const internalProps = external ? getExternalLinkProps() : {};
-  return <StyledLink as="a" bold {...internalProps} {...props} />;
+  return <StyledLink as="a" {...internalProps} {...isBold} {...props} />;
 };
 
 Link.defaultProps = {
   color: "primary",
+  bold: true,
 };
 
 export default Link;
