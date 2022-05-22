@@ -4720,10 +4720,13 @@ var MenuItem = function (_a) {
                     return (React__default["default"].createElement(StyledList, { key: item.label },
                         React__default["default"].createElement(StyledListItem, null, item.label), (_a = item.items) === null || _a === void 0 ? void 0 :
                         _a.map(function (_a) {
-                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, useRouterLink = _a.useRouterLink;
+                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, useRouterLink = _a.useRouterLink, _c = _a.isExternal, isExternal = _c === void 0 ? true : _c;
                             var LinkProps = useRouterLink
                                 ? { as: reactRouterDom.Link, to: href }
-                                : { href: href, target: "_blank", rel: "noreferrer noopener" };
+                                : {
+                                    href: href,
+                                    external: isExternal,
+                                };
                             return (React__default["default"].createElement(StyledListItem, { key: label }, href ? (React__default["default"].createElement(Link, __assign({}, LinkProps, { color: isHighlighted
                                     ? baseColors.warning
                                     : darkColors.text, bold: false }), label)) : (React__default["default"].createElement(StyledText, null, label))));

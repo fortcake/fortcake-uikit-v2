@@ -8,6 +8,7 @@ export type FooterLinkType = {
     href?: string;
     isHighlighted?: boolean;
     useRouterLink?: boolean;
+    isExternal?: boolean;
   }[];
 };
 

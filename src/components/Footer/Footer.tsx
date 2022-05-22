@@ -43,10 +43,19 @@ const MenuItem: React.FC<
               <StyledList key={item.label}>
                 <StyledListItem>{item.label}</StyledListItem>
                 {item.items?.map(
-                  ({ label, href, isHighlighted = false, useRouterLink }) => {
+                  ({
+                    label,
+                    href,
+                    isHighlighted = false,
+                    useRouterLink,
+                    isExternal = true,
+                  }) => {
                     const LinkProps: unknown = useRouterLink
                       ? { as: RouterLink, to: href }
-                      : { href, target: "_blank", rel: "noreferrer noopener" };
+                      : {
+                          href,
+                          external: isExternal,
+                        };
                     return (
                       <StyledListItem key={label}>
                         {href ? (
