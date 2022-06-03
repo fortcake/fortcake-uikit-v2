@@ -75,7 +75,7 @@ export const footerLinks: FooterLinkType[] = [
   },
 ];
 
-type socialLinksTypes = {
+export type socialLinksTypes = {
   label: string;
   icon: string;
   href: string;

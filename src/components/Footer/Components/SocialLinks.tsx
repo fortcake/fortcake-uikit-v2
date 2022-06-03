@@ -1,28 +1,30 @@
-import React from 'react';
-import { darkColors } from '../../../theme';
-import { FlexProps } from '../../Box';
-import Flex from '../../Box/Flex';
+import React from "react";
+import { darkColors } from "../../../theme";
+import { FlexProps } from "../../Box";
+import Flex from "../../Box/Flex";
 // import Dropdown from '../../Dropdown/Dropdown';
-import Link from '../../Link/Link';
-import IconComponent from '../../Svg/IconComponent';
-import { socials } from '../config';
-import useMatchBreakpoints from '../../../hooks/useMatchBreakpoints';
+import Link from "../../Link/Link";
+import IconComponent from "../../Svg/IconComponent";
+import { socialLinksTypes } from "../config";
+import useMatchBreakpoints from "../../../hooks/useMatchBreakpoints";
 
-const SocialLinks: React.FC<FlexProps> = ({ ...props }) => {
+const SocialLinks: React.FC<
+  FlexProps & { socialLinks: socialLinksTypes[] }
+> = ({ socialLinks, ...props }) => {
   const { isMobile } = useMatchBreakpoints();
   return (
     <Flex {...props}>
-      {socials.map((social, index) => {
+      {socialLinks.map((social, index) => {
         const iconProps = {
           iconName: social.icon,
-          width: '20px',
+          width: "20px",
           color: darkColors.textSubtle,
-          style: { cursor: 'pointer' },
+          style: { cursor: "pointer" },
         };
-        const lastIndex = index < socials.length - 1;
+        const lastIndex = index < socialLinks.length - 1;
         const mr =
           // eslint-disable-next-line no-nested-ternary
-          lastIndex && !isMobile ? '24px' : lastIndex && isMobile ? '18px' : 0;
+          lastIndex && !isMobile ? "24px" : lastIndex && isMobile ? "18px" : 0;
         return (
           <Link
             external

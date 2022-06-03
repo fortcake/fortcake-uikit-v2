@@ -9,6 +9,7 @@ import { StyledFooter, StyledList, StyledListItem, StyledText } from "./styles";
 import { FooterProps } from "./types";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import SocialLinks from "./Components/SocialLinks";
+import { socialLinksTypes } from "./config";
 // import { Image } from "../Image";
 
 const FlexItems = styled(Flex)`
@@ -20,8 +21,18 @@ const FlexItems = styled(Flex)`
 `;
 
 const MenuItem: React.FC<
-  FooterProps & { newsLetterComponent: ReactElement }
-> = ({ items, isDark, toggleTheme, newsLetterComponent, ...props }) => {
+  FooterProps & {
+    newsLetterComponent: ReactElement;
+    socialLinks: socialLinksTypes[];
+  }
+> = ({
+  items,
+  isDark,
+  toggleTheme,
+  newsLetterComponent,
+  socialLinks,
+  ...props
+}) => {
   return (
     <StyledFooter
       p={["40px 16px", null, "56px 40px 32px 40px"]}
@@ -83,7 +94,7 @@ const MenuItem: React.FC<
           {newsLetterComponent}
         </Flex>
         <Flex justifyContent="space-between">
-          <SocialLinks />
+          <SocialLinks socialLinks={socialLinks} />
           <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
         </Flex>
       </Flex>

@@ -4632,58 +4632,20 @@ var BottomNav = function (_a) {
     })));
 };
 
-var socials = [
-    {
-        label: "Twitter",
-        icon: "Twitter",
-        href: "https://twitter.com/fortcake",
-    },
-    {
-        label: "Telegram",
-        icon: "Telegram",
-        href: "https://t.me/joinchat/iPHYn9_M_cxiMTMx",
-    },
-    {
-        label: "Reddit",
-        icon: "Reddit",
-        href: "https://www.reddit.com/user/fortcakeofficial",
-    },
-    {
-        label: "Instagram",
-        icon: "Instagram",
-        href: "https://www.instagram.com/fortcake_official/",
-    },
-    {
-        label: "Github",
-        icon: "Github",
-        href: "https://github.com/fortcake/",
-    },
-    {
-        label: "Discord",
-        icon: "Discord",
-        href: "https://discord.com/invite/FAqUbJXzN9",
-    },
-];
-__spreadArray([], Array(20), true).map(function (_, i) { return ({
-    code: "en".concat(i),
-    language: "English".concat(i),
-    locale: "Locale".concat(i),
-}); });
-
 var SocialLinks = function (_a) {
-    var props = __rest(_a, []);
+    var socialLinks = _a.socialLinks, props = __rest(_a, ["socialLinks"]);
     var isMobile = useMatchBreakpoints().isMobile;
-    return (React__default["default"].createElement(Flex, __assign({}, props), socials.map(function (social, index) {
+    return (React__default["default"].createElement(Flex, __assign({}, props), socialLinks.map(function (social, index) {
         var iconProps = {
             iconName: social.icon,
-            width: '20px',
+            width: "20px",
             color: darkColors.textSubtle,
-            style: { cursor: 'pointer' },
+            style: { cursor: "pointer" },
         };
-        var lastIndex = index < socials.length - 1;
+        var lastIndex = index < socialLinks.length - 1;
         var mr = 
         // eslint-disable-next-line no-nested-ternary
-        lastIndex && !isMobile ? '24px' : lastIndex && isMobile ? '18px' : 0;
+        lastIndex && !isMobile ? "24px" : lastIndex && isMobile ? "18px" : 0;
         return (React__default["default"].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
             React__default["default"].createElement(IconComponent, __assign({}, iconProps))));
     })));
@@ -4711,7 +4673,7 @@ var FlexItems = styled__default["default"](Flex)(templateObject_1$8 || (template
     return theme.mediaQueries.sm;
 });
 var MenuItem = function (_a) {
-    var items = _a.items, isDark = _a.isDark, toggleTheme = _a.toggleTheme, newsLetterComponent = _a.newsLetterComponent, props = __rest(_a, ["items", "isDark", "toggleTheme", "newsLetterComponent"]);
+    var items = _a.items, isDark = _a.isDark, toggleTheme = _a.toggleTheme, newsLetterComponent = _a.newsLetterComponent, socialLinks = _a.socialLinks, props = __rest(_a, ["items", "isDark", "toggleTheme", "newsLetterComponent", "socialLinks"]);
     return (React__default["default"].createElement(StyledFooter, __assign({ p: ["40px 16px", null, "56px 40px 32px 40px"] }, props, { justifyContent: "center" }),
         React__default["default"].createElement(Flex, { flexDirection: "column", width: ["100%", null, "1200px;"] },
             React__default["default"].createElement(Flex, { flexDirection: ["column", null, "row"], justifyContent: "space-between", alignItems: "flex-start", mb: ["42px", null, "36px"] },
@@ -4734,7 +4696,7 @@ var MenuItem = function (_a) {
                 })),
                 newsLetterComponent),
             React__default["default"].createElement(Flex, { justifyContent: "space-between" },
-                React__default["default"].createElement(SocialLinks$1, null),
+                React__default["default"].createElement(SocialLinks$1, { socialLinks: socialLinks }),
                 React__default["default"].createElement(ThemeToggler, { isDark: isDark, toggleTheme: toggleTheme })))));
 };
 var templateObject_1$8;
@@ -4937,7 +4899,7 @@ var FixedContainer = styled__default["default"].div(templateObject_3$1 || (templ
 var BodyWrapper = styled__default["default"](Box)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled__default["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  flex-grow: 1;\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n"], ["\n  flex-grow: 1;\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n"])));
 var Menu$1 = function (_a) {
-    var _b = _a.linkComponent, linkComponent = _b === void 0 ? "a" : _b, userMenu = _a.userMenu, banner = _a.banner, globalMenu = _a.globalMenu, isDark = _a.isDark, toggleTheme = _a.toggleTheme, currentLang = _a.currentLang, setLang = _a.setLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, subLinks = _a.subLinks, footerLinks = _a.footerLinks, activeItem = _a.activeItem, activeSubItem = _a.activeSubItem, langs = _a.langs, buyCakeLabel = _a.buyCakeLabel, children = _a.children, logo = _a.logo, newsLetterComponent = _a.newsLetterComponent;
+    var _b = _a.linkComponent, linkComponent = _b === void 0 ? "a" : _b, userMenu = _a.userMenu, banner = _a.banner, globalMenu = _a.globalMenu, isDark = _a.isDark, toggleTheme = _a.toggleTheme, currentLang = _a.currentLang, setLang = _a.setLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, subLinks = _a.subLinks, footerLinks = _a.footerLinks, activeItem = _a.activeItem, activeSubItem = _a.activeSubItem, langs = _a.langs, buyCakeLabel = _a.buyCakeLabel, children = _a.children, logo = _a.logo, newsLetterComponent = _a.newsLetterComponent, socialLinks = _a.socialLinks;
     var _c = useMatchBreakpoints(), isDesktop = _c.isDesktop, isMobile = _c.isMobile;
     var _d = React.useState(true), showMenu = _d[0], setShowMenu = _d[1];
     var refPrevOffset = React.useRef(typeof window === "undefined" ? 0 : window.pageYOffset);
@@ -4998,7 +4960,7 @@ var Menu$1 = function (_a) {
             React__default["default"].createElement(BodyWrapper, { mt: !subLinks ? "".concat(totalTopMenuHeight + 1, "px") : "0" },
                 React__default["default"].createElement(Inner, { isPushed: false, showMenu: showMenu },
                     children,
-                    React__default["default"].createElement(MenuItem, { items: footerLinks, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, buyCakeLabel: buyCakeLabel, newsLetterComponent: newsLetterComponent, mb: ["".concat(MOBILE_MENU_HEIGHT, "px"), null, "0px"] }))),
+                    React__default["default"].createElement(MenuItem, { items: footerLinks, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, buyCakeLabel: buyCakeLabel, newsLetterComponent: newsLetterComponent, socialLinks: socialLinks, mb: ["".concat(MOBILE_MENU_HEIGHT, "px"), null, "0px"] }))),
             isMobile && (React__default["default"].createElement(BottomNav, { items: filteredLinks, activeItem: activeItem, activeSubItem: activeSubItem })))));
 };
 var templateObject_1$7, templateObject_2$4, templateObject_3$1, templateObject_4, templateObject_5;

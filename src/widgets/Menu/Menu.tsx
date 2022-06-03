@@ -17,6 +17,7 @@ import {
 } from "./config";
 import { NavProps } from "./types";
 import { MenuContext } from "./context";
+import { socialLinksTypes } from "../../components/Footer/config";
 
 const Wrapper = styled.div`
   position: relative;
@@ -59,7 +60,12 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
-const Menu: React.FC<NavProps & { newsLetterComponent: ReactElement }> = ({
+const Menu: React.FC<
+  NavProps & {
+    newsLetterComponent: ReactElement;
+    socialLinks: socialLinksTypes[];
+  }
+> = ({
   linkComponent = "a",
   userMenu,
   banner,
@@ -79,6 +85,7 @@ const Menu: React.FC<NavProps & { newsLetterComponent: ReactElement }> = ({
   children,
   logo,
   newsLetterComponent,
+  socialLinks,
 }) => {
   const { isDesktop, isMobile } = useMatchBreakpoints();
   const [showMenu, setShowMenu] = useState(true);
@@ -189,6 +196,7 @@ const Menu: React.FC<NavProps & { newsLetterComponent: ReactElement }> = ({
               cakePriceUsd={cakePriceUsd}
               buyCakeLabel={buyCakeLabel}
               newsLetterComponent={newsLetterComponent}
+              socialLinks={socialLinks}
               mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
             />
           </Inner>
