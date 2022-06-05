@@ -35,7 +35,7 @@ const connectors: Config[] = [
     icon: CoinbaseWallet,
     connectorId: ConnectorNames.WalletLink,
     priority: 4,
-    href: `cbwallet://dapp?url=${encodeURIComponent(window.location.href)}`,
+    href: `cbwallet://dapp?url=${encodeURIComponent("https://fortcake.io")}`,
   },
   {
     title: "Binance Chain",

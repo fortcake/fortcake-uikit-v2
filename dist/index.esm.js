@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { isValidElement, cloneElement, Children, useEffect, useState, useLayoutEffect, useRef, forwardRef, useContext, createContext, useMemo, useReducer, useCallback } from 'react';
+import React__default, { isValidElement, cloneElement, Children, useEffect, useState, useLayoutEffect, useRef, forwardRef, createContext, useContext, useMemo, useReducer, useCallback } from 'react';
 import styled, { keyframes, css, useTheme, ThemeProvider, createGlobalStyle } from 'styled-components';
 import { space, typography, layout, variant as variant$1, background, border, position, flexbox, grid, color } from 'styled-system';
 import get from 'lodash/get';
@@ -7,7 +7,6 @@ import uniqueId from 'lodash/uniqueId';
 import { uniqueId as uniqueId$1, noop as noop$1 } from 'lodash';
 import { createPortal } from 'react-dom';
 import { usePopper } from 'react-popper';
-import { Link as Link$1 } from 'react-router-dom';
 import noop from 'lodash/noop';
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
@@ -2650,12 +2649,15 @@ var GridLayout = styled(GridLayout$1)(templateObject_1$D || (templateObject_1$D 
 });
 var templateObject_1$D;
 
+var MenuContext = createContext({ linkComponent: "a" });
+
 var StyledLink$1 = styled(Text)(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
 var Link = function (_a) {
     var external = _a.external, bold = _a.bold, props = __rest(_a, ["external", "bold"]);
+    var linkComponent = useContext(MenuContext).linkComponent;
     var isBold = bold ? { bold: true } : {};
     var internalProps = external ? getExternalLinkProps() : {};
-    return React__default.createElement(StyledLink$1, __assign({ as: "a" }, internalProps, isBold, props));
+    return (React__default.createElement(StyledLink$1, __assign({ as: linkComponent }, internalProps, isBold, props)));
 };
 Link.defaultProps = {
     color: "primary",
@@ -3380,8 +3382,6 @@ var SubMenu = function (_a) {
         React__default.createElement(SubMenuContainer, __assign({}, props), children)));
 };
 
-var MenuContext = createContext({ linkComponent: "a" });
-
 styled.div(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["\n  position: relative;\n\n  ", ";\n"], ["\n  position: relative;\n\n  ", ";\n"])), function (_a) {
     var $isActive = _a.$isActive, $variant = _a.$variant, theme = _a.theme;
     return $isActive &&
@@ -3416,19 +3416,14 @@ var StyledMenuItem = styled.a(templateObject_2$e || (templateObject_2$e = __make
 var templateObject_1$q, templateObject_2$e;
 
 var MenuItem$1 = function (_a) {
-    var children = _a.children, _b = _a.href, href = _b === void 0 ? "" : _b, _c = _a.isActive, isActive = _c === void 0 ? false : _c, _d = _a.variant, variant = _d === void 0 ? "default" : _d, statusColor = _a.statusColor, _e = _a.isExternal, isExternal = _e === void 0 ? false : _e, _f = _a.useRouterLink, useRouterLink = _f === void 0 ? false : _f, props = __rest(_a, ["children", "href", "isActive", "variant", "statusColor", "isExternal", "useRouterLink"]);
+    var children = _a.children, _b = _a.href, href = _b === void 0 ? "" : _b, _c = _a.isActive, isActive = _c === void 0 ? false : _c, _d = _a.variant, variant = _d === void 0 ? "default" : _d, statusColor = _a.statusColor, _e = _a.isExternal, isExternal = _e === void 0 ? false : _e; _a.useRouterLink; var props = __rest(_a, ["children", "href", "isActive", "variant", "statusColor", "isExternal", "useRouterLink"]);
     var linkComponent = useContext(MenuContext).linkComponent;
-    var itemLinkProps = useRouterLink
+    var itemLinkProps = isExternal
         ? {
-            as: Link$1,
-            to: href,
-        }
-        : {
-            as: useRouterLink ? Link$1 : linkComponent,
-            href: href,
             target: isExternal ? "_blank" : "",
-        };
-    return (React__default.createElement(StyledMenuItem, __assign({}, itemLinkProps, { "$isActive": isActive, "$variant": variant, "$statusColor": statusColor }, props), children));
+        }
+        : {};
+    return (React__default.createElement(StyledMenuItem, __assign({}, itemLinkProps, { as: linkComponent, href: href, "$isActive": isActive, "$variant": variant, "$statusColor": statusColor }, props), children));
 };
 
 var Icons$1 = IconModule;
@@ -4563,22 +4558,21 @@ var StyledBottomNavItem = styled.button(templateObject_1$c || (templateObject_1$
 var StyledBottomNavText = styled(Text)(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n  display: -webkit-box;\n  overflow: hidden;\n  user-select: none;\n  -webkit-line-clamp: 1;\n  -webkit-box-orient: vertical;\n  -webkit-user-select: none;\n  -webkit-touch-callout: none;\n"], ["\n  display: -webkit-box;\n  overflow: hidden;\n  user-select: none;\n  -webkit-line-clamp: 1;\n  -webkit-box-orient: vertical;\n  -webkit-user-select: none;\n  -webkit-touch-callout: none;\n"])));
 var templateObject_1$c, templateObject_2$6;
 
-var StyledLink = styled(Link$1)(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"], ["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"])));
+var StyledLink = styled.a(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"], ["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"])));
 var BottomNavItem = function (_a) {
-    var label = _a.label, iconName = _a.iconName, href = _a.href, _b = _a.isActive, isActive = _b === void 0 ? false : _b, _c = _a.useRouterLink, useRouterLink = _c === void 0 ? false : _c, props = __rest(_a, ["label", "iconName", "href", "isActive", "useRouterLink"]);
+    var label = _a.label, iconName = _a.iconName, href = _a.href, _b = _a.isActive, isActive = _b === void 0 ? false : _b; _a.useRouterLink; __rest(_a, ["label", "iconName", "href", "isActive", "useRouterLink"]);
     var linkComponent = useContext(MenuContext).linkComponent;
-    var bottomNavItemContent = (React__default.createElement(Flex, { flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%" }, useRouterLink ? (React__default.createElement(StyledLink, { to: href },
-        React__default.createElement(AnimatedIconComponent, { iconName: iconName !== null && iconName !== void 0 ? iconName : "", height: "22px", width: "21px", color: isActive ? "secondary" : "textSubtle", isActive: isActive, activeBackgroundColor: "backgroundAlt" }),
-        React__default.createElement(StyledBottomNavText, { color: isActive ? "secondary" : "textSubtle", fontWeight: isActive ? "600" : "400", fontSize: "10px" }, label))) : (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement(AnimatedIconComponent, { iconName: iconName !== null && iconName !== void 0 ? iconName : "", height: "22px", width: "21px", color: isActive ? "secondary" : "textSubtle", isActive: isActive, activeBackgroundColor: "backgroundAlt" }),
-        React__default.createElement(StyledBottomNavText, { color: isActive ? "text" : "textSubtle", fontWeight: isActive ? "600" : "400", fontSize: "10px" }, label)))));
-    var aProps = !useRouterLink
-        ? {
-            href: href,
-            label: label,
-        }
-        : {};
-    return (React__default.createElement(StyledBottomNavItem, __assign({ as: useRouterLink ? "button" : linkComponent }, aProps, props), bottomNavItemContent));
+    var bottomNavItemContent = (React__default.createElement(Flex, { flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%" },
+        React__default.createElement(StyledLink, { href: href, as: linkComponent },
+            React__default.createElement(AnimatedIconComponent, { iconName: iconName !== null && iconName !== void 0 ? iconName : "", height: "22px", width: "21px", color: isActive ? "secondary" : "textSubtle", isActive: isActive, activeBackgroundColor: "backgroundAlt" }),
+            React__default.createElement(StyledBottomNavText, { color: isActive ? "secondary" : "textSubtle", fontWeight: isActive ? "600" : "400", fontSize: "10px" }, label))));
+    // const aProps = !useRouterLink
+    //   ? {
+    //       href,
+    //       label,
+    //     }
+    //   : {};
+    return (React__default.createElement(StyledBottomNavItem, { as: "button", "$isActive": isActive }, bottomNavItemContent));
 };
 var templateObject_1$b;
 
@@ -4642,6 +4636,7 @@ var FlexItems = styled(Flex)(templateObject_1$8 || (templateObject_1$8 = __makeT
 });
 var MenuItem = function (_a) {
     var items = _a.items, isDark = _a.isDark, toggleTheme = _a.toggleTheme, newsLetterComponent = _a.newsLetterComponent, socialLinks = _a.socialLinks, props = __rest(_a, ["items", "isDark", "toggleTheme", "newsLetterComponent", "socialLinks"]);
+    useContext(MenuContext).linkComponent;
     return (React__default.createElement(StyledFooter, __assign({ p: ["40px 16px", null, "56px 40px 32px 40px"] }, props, { justifyContent: "center" }),
         React__default.createElement(Flex, { flexDirection: "column", width: ["100%", null, "1200px;"] },
             React__default.createElement(Flex, { flexDirection: ["column", null, "row"], justifyContent: "space-between", alignItems: "flex-start", mb: ["42px", null, "36px"] },
@@ -4650,16 +4645,10 @@ var MenuItem = function (_a) {
                     return (React__default.createElement(StyledList, { key: item.label },
                         React__default.createElement(StyledListItem, null, item.label), (_a = item.items) === null || _a === void 0 ? void 0 :
                         _a.map(function (_a) {
-                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, useRouterLink = _a.useRouterLink, _c = _a.isExternal, isExternal = _c === void 0 ? true : _c;
-                            var LinkProps = useRouterLink
-                                ? { as: Link$1, to: href }
-                                : {
-                                    href: href,
-                                    external: isExternal,
-                                };
-                            return (React__default.createElement(StyledListItem, { key: label }, href ? (React__default.createElement(Link, __assign({}, LinkProps, { color: isHighlighted
+                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, _c = _a.isExternal, isExternal = _c === void 0 ? true : _c;
+                            return (React__default.createElement(StyledListItem, { key: label }, href ? (React__default.createElement(Link, { href: href, external: isExternal, color: isHighlighted
                                     ? baseColors.warning
-                                    : darkColors.text, bold: false }), label)) : (React__default.createElement(StyledText, null, label))));
+                                    : darkColors.text, bold: false }, label)) : (React__default.createElement(StyledText, null, label))));
                         })));
                 })),
                 newsLetterComponent),
@@ -5095,7 +5084,7 @@ var connectors = [
         icon: Icon$2,
         connectorId: ConnectorNames.WalletLink,
         priority: 4,
-        href: "cbwallet://dapp?url=".concat(encodeURIComponent(window.location.href)),
+        href: "cbwallet://dapp?url=".concat(encodeURIComponent("https://fortcake.io")),
     },
     {
         title: "Binance Chain",

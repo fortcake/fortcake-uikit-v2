@@ -1,6 +1,5 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 import { baseColors, darkColors } from "../../theme/colors";
 import { Flex } from "../Box";
@@ -10,6 +9,7 @@ import { FooterProps } from "./types";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import SocialLinks from "./Components/SocialLinks";
 import { socialLinksTypes } from "./config";
+import { MenuContext } from "../../widgets/Menu/context";
 // import { Image } from "../Image";
 
 const FlexItems = styled(Flex)`
@@ -33,6 +33,7 @@ const MenuItem: React.FC<
   socialLinks,
   ...props
 }) => {
+  const { linkComponent } = useContext(MenuContext);
   return (
     <StyledFooter
       p={["40px 16px", null, "56px 40px 32px 40px"]}
@@ -58,20 +59,14 @@ const MenuItem: React.FC<
                     label,
                     href,
                     isHighlighted = false,
-                    useRouterLink,
                     isExternal = true,
                   }) => {
-                    const LinkProps: unknown = useRouterLink
-                      ? { as: RouterLink, to: href }
-                      : {
-                          href,
-                          external: isExternal,
-                        };
                     return (
                       <StyledListItem key={label}>
                         {href ? (
                           <Link
-                            {...LinkProps}
+                            href={href}
+                            external={isExternal}
                             color={
                               isHighlighted
                                 ? baseColors.warning

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Link } from "react-router-dom";
 import { MenuContext } from "../../widgets/Menu/context";
 import StyledMenuItem from "./styles";
 import { MenuItemProps } from "./types";
@@ -21,19 +20,17 @@ const MenuItem: React.FC<
   ...props
 }) => {
   const { linkComponent } = useContext(MenuContext);
-  const itemLinkProps: unknown = useRouterLink
+  const itemLinkProps: unknown = isExternal
     ? {
-        as: Link,
-        to: href,
-      }
-    : {
-        as: useRouterLink ? Link : linkComponent,
-        href,
         target: isExternal ? "_blank" : "",
-      };
+      }
+    : {};
+
   return (
     <StyledMenuItem
       {...itemLinkProps}
+      as={linkComponent}
+      href={href}
       $isActive={isActive}
       $variant={variant}
       $statusColor={statusColor}

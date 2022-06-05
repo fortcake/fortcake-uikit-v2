@@ -36,23 +36,22 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.5",
     "@types/lodash": "^4.14.168",
-    "@types/react-dom": "^17.0.5",
+    "@types/react": "^17.0.1",
+    "@types/react-dom": "^17.0.1",
     "@types/styled-components": "^5.1.22",
     "eslint": "^7.2.0",
     "eslint-plugin-react": "^7.28.0",
     "jest-styled-components": "^7.0.3",
     "prettier": "^2.1.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
+    "react-is": "^18.1.0",
     "rollup": "^2.67.0",
     "styled-components": "^5.2.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "styled-components": "^5.2.3"
   },
   "dependencies": {

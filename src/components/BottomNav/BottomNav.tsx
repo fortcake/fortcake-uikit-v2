@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import BottomNavItem from "../BottomNavItem";
 import StyledBottomNav from "./styles";
 import { BottomNavProps } from "./types";
