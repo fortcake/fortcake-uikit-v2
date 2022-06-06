@@ -24,6 +24,7 @@ const MenuItem: React.FC<
   FooterProps & {
     newsLetterComponent: ReactElement;
     socialLinks: socialLinksTypes[];
+    nextLink?: any
   }
 > = ({
   items,
@@ -31,6 +32,7 @@ const MenuItem: React.FC<
   toggleTheme,
   newsLetterComponent,
   socialLinks,
+  nextLink = undefined,
   ...props
 }) => {
   const { linkComponent } = useContext(MenuContext);
@@ -60,6 +62,7 @@ const MenuItem: React.FC<
                     href,
                     isHighlighted = false,
                     isExternal = true,
+                    useRouterLink = false
                   }) => {
                     return (
                       <StyledListItem key={label}>
@@ -73,6 +76,7 @@ const MenuItem: React.FC<
                                 : darkColors.text
                             }
                             bold={false}
+                            as={useRouterLink ? nextLink : "a"}
                           >
                             {label}
                           </Link>
