@@ -2651,10 +2651,10 @@ var templateObject_1$D;
 
 var StyledLink$1 = styled(Text)(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
 var Link = function (_a) {
-    var external = _a.external, bold = _a.bold, _b = _a.as, as = _b === void 0 ? "a" : _b, props = __rest(_a, ["external", "bold", "as"]);
+    var external = _a.external, bold = _a.bold, _b = _a.renderAs, renderAs = _b === void 0 ? "a" : _b, props = __rest(_a, ["external", "bold", "renderAs"]);
     var isBold = bold ? { bold: true } : {};
     var internalProps = external ? getExternalLinkProps() : {};
-    return (React__default.createElement(StyledLink$1, __assign({ as: as }, internalProps, isBold, props)));
+    return (React__default.createElement(StyledLink$1, __assign({ as: renderAs }, internalProps, isBold, props)));
 };
 Link.defaultProps = {
     color: "primary",
@@ -4634,8 +4634,8 @@ var FlexItems = styled(Flex)(templateObject_1$8 || (templateObject_1$8 = __makeT
     return theme.mediaQueries.sm;
 });
 var MenuItem = function (_a) {
-    var items = _a.items, isDark = _a.isDark, toggleTheme = _a.toggleTheme, newsLetterComponent = _a.newsLetterComponent, socialLinks = _a.socialLinks, _b = _a.nextLink, nextLink = _b === void 0 ? undefined : _b, props = __rest(_a, ["items", "isDark", "toggleTheme", "newsLetterComponent", "socialLinks", "nextLink"]);
-    useContext(MenuContext).linkComponent;
+    var items = _a.items, isDark = _a.isDark, toggleTheme = _a.toggleTheme, newsLetterComponent = _a.newsLetterComponent, socialLinks = _a.socialLinks, LinkComponent = _a.LinkComponent, props = __rest(_a, ["items", "isDark", "toggleTheme", "newsLetterComponent", "socialLinks", "LinkComponent"]);
+    var linkComponent = useContext(MenuContext).linkComponent;
     return (React__default.createElement(StyledFooter, __assign({ p: ["40px 16px", null, "56px 40px 32px 40px"] }, props, { justifyContent: "center" }),
         React__default.createElement(Flex, { flexDirection: "column", width: ["100%", null, "1200px;"] },
             React__default.createElement(Flex, { flexDirection: ["column", null, "row"], justifyContent: "space-between", alignItems: "flex-start", mb: ["42px", null, "36px"] },
@@ -4644,10 +4644,11 @@ var MenuItem = function (_a) {
                     return (React__default.createElement(StyledList, { key: item.label },
                         React__default.createElement(StyledListItem, null, item.label), (_a = item.items) === null || _a === void 0 ? void 0 :
                         _a.map(function (_a) {
-                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, _c = _a.isExternal, isExternal = _c === void 0 ? true : _c, _d = _a.useRouterLink, useRouterLink = _d === void 0 ? false : _d;
+                            var label = _a.label, href = _a.href, _b = _a.isHighlighted, isHighlighted = _b === void 0 ? false : _b, _c = _a.isExternal, isExternal = _c === void 0 ? true : _c;
+                            console.log({ LinkComponent: LinkComponent, typeOf: typeof LinkComponent === 'undefined', linkComponent: linkComponent });
                             return (React__default.createElement(StyledListItem, { key: label }, href ? (React__default.createElement(Link, { href: href, external: isExternal, color: isHighlighted
                                     ? baseColors.warning
-                                    : darkColors.text, bold: false, as: useRouterLink ? nextLink : "a" }, label)) : (React__default.createElement(StyledText, null, label))));
+                                    : darkColors.text, bold: false, renderAs: typeof LinkComponent !== 'undefined' ? LinkComponent : linkComponent }, label)) : (React__default.createElement(StyledText, null, label))));
                         })));
                 })),
                 newsLetterComponent),

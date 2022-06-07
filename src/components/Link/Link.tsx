@@ -13,17 +13,17 @@ const StyledLink = styled(Text)<LinkProps>`
   }
 `;
 
-const Link: React.FC<LinkProps & { bold?: boolean, as?: any }> = ({
+const Link: React.FC<LinkProps & { bold?: boolean, renderAs?: any }> = ({
   external,
   bold,
-  as = "a",
+  renderAs = "a",
   ...props
 }) => {
   
   const isBold = bold ? { bold: true } : {};
   const internalProps = external ? getExternalLinkProps() : {};
   return (
-    <StyledLink as={as} {...internalProps} {...isBold} {...props} />
+    <StyledLink as={renderAs} {...internalProps} {...isBold} {...props} />
   );
 };
 
